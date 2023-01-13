@@ -45,7 +45,7 @@ E1 = (1/2) * (t1 - a_o1)^2
 E2 = (1/2) * (t2 - a_o2)^2
 ```
 
-Based on the above, we calculate the following parameters. Every parameter except the weights is initially undefined. Weights are chosen randomly here. Other parameters and weights for future iterations are derived from other parameters and input.
+Based on the above, we calculate the following parameters. Every parameter except the weights is initially undefined. Initial weights are chosen randomly here and these are updated in future iterations based on the gradient. Other parameters, including weights for future iterations, are derived from other parameters and input.
 
 ```
 h1 = w1*i1 + w2*i2
