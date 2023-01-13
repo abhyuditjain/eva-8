@@ -1,5 +1,7 @@
 # Part 1
 
+In part 1 of the assignment, we were given a network and we were supposed to find all the partial derivatives of loss with respect to the weights. We were also supposed to plot the loss for some number of iterations for various learning rates.
+
 ## Network
 
 ![Alt text](./images/network.png "Network")
@@ -14,7 +16,7 @@ i1 = Input 1
 i2 = Input 2
 ```
 
-Based on the above, we calculate the following parameters. Every parameter except the weights is initially undefined. Weights are chosen randomly here. Other parameters and weights for future iterations are derived from other parameters and input.
+Some other notations used:
 
 ```
 w1 = weight 1
@@ -26,17 +28,37 @@ w6 = weight 6
 w7 = weight 7
 w8 = weight 8
 
+h1 = hidden output 1
+h2 = hidden output 2
+a_h1 = activated hidden output 1
+a_h2 = activated hidden output 2
+o1 = output 1
+o2 = output 2
+a_o1 = activated output 1
+a_o2 = activated output 2
+```
+
+Also, the loss function used is the L2 function, defined as:
+
+```
+E1 = (1/2) * (t1 - a_o1)^2
+E2 = (1/2) * (t2 - a_o2)^2
+```
+
+Based on the above, we calculate the following parameters. Every parameter except the weights is initially undefined. Weights are chosen randomly here. Other parameters and weights for future iterations are derived from other parameters and input.
+
+```
 h1 = w1*i1 + w2*i2
 h2 = w3*i1 + w4*i2
 
-a_h1 = sigma(h1) = 1/(1 + exp(-h1))
-a_h2 = sigma(h2) = 1/(1 + exp(-h2))
+a_h1 = σ(h1) = 1/(1 + exp(-h1))
+a_h2 = σ(h2) = 1/(1 + exp(-h2))
 
 o1 = w5*a_h1 + w6*a_h2
 o2 = w7*a_h1 + w8*a_h2
 
-a_o1 = sigma(o1) = 1/(1 + exp(-o1))
-a_o2 = sigma(o2) = 1/(1 + exp(-o2))
+a_o1 = σ(o1) = 1/(1 + exp(-o1))
+a_o2 = σ(o2) = 1/(1 + exp(-o2))
 
 E1 = (1/2)*(t1 - a_o1)^2
 E2 = (1/2)*(t2 - a_o2)^2
@@ -82,7 +104,7 @@ To derive `(i)`, we calculate the 3 terms in it:
 ```
 ∂E1/∂a_o1 = ∂((1/2)*(t1 - a_o1)^2)/∂a_o1 = a_o1 - t1
 
-∂a_o1/∂o1 = ∂(sigma(o1))/∂o1 = sigma(o1) * (1 - sigma(o1)) = a_o1 * (1 - a_o1)
+∂a_o1/∂o1 = ∂(σ(o1))/∂o1 = σ(o1) * (1 - σ(o1)) = a_o1 * (1 - a_o1)
 
 ∂o1/∂w5 = ∂(w5*a_h1 + w6*a_h2)/∂w5 = a_h1
 ```
@@ -98,7 +120,7 @@ Similarly, to derive `(ii)`, we calculate the 3 terms in it:
 ```
 ∂E1/∂a_o1 = ∂((1/2)*(t1 - a_o1)^2)/∂a_o1 = a_o1 - t1
 
-∂a_o1/∂o1 = ∂(sigma(o1))/∂o1 = sigma(o1) * (1 - sigma(o1)) = a_o1 * (1 - a_o1)
+∂a_o1/∂o1 = ∂(σ(o1))/∂o1 = σ(o1) * (1 - σ(o1)) = a_o1 * (1 - a_o1)
 
 ∂o1/∂w6 = ∂(w5*a_h1 + w6*a_h2)/∂w6 = a_h2
 ```
@@ -114,7 +136,7 @@ Similarly, to derive `(iii)`, we calculate the 3 terms in it:
 ```
 ∂E2/∂a_o2 = ∂((1/2)*(t2 - a_o2)^2)/∂a_o1 = a_o2 - t2
 
-∂a_o2/∂o2 = ∂(sigma(o2))/∂o2 = sigma(o2) * (1 - sigma(o2)) = a_o2 * (1 - a_o2)
+∂a_o2/∂o2 = ∂(σ(o2))/∂o2 = σ(o2) * (1 - σ(o2)) = a_o2 * (1 - a_o2)
 
 ∂o2/∂w7 = ∂(w7*a_h1 + w8*a_h2)/∂w7 = a_h1
 ```
@@ -130,7 +152,7 @@ Similarly, to derive `(iv)`, we calculate the 3 terms in it:
 ```
 ∂E2/∂a_o2 = ∂((1/2)*(t2 - a_o2)^2)/∂a_o1 = a_o2 - t2
 
-∂a_o2/∂o2 = ∂(sigma(o2))/∂o2 = sigma(o2) * (1 - sigma(o2)) = a_o2 * (1 - a_o2)
+∂a_o2/∂o2 = ∂(σ(o2))/∂o2 = σ(o2) * (1 - σ(o2)) = a_o2 * (1 - a_o2)
 
 ∂o2/∂w8 = ∂(w7*a_h1 + w8*a_h2)/∂w8 = a_h2
 ```
