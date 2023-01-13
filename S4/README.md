@@ -377,7 +377,7 @@ Estimated Total Size (MB): 0.55
 
 ## Link to the solution
 
-[<font size=5><u><b>Solution</b></u></font>](https://colab.research.google.com/drive/1UCCuRF1rhUaQ6RZ5B5_shFS7PeGb6z_Q?usp=sharing)
+[<font size=10><u><b>Solution</b></u></font>](https://colab.research.google.com/drive/1UCCuRF1rhUaQ6RZ5B5_shFS7PeGb6z_Q?usp=sharing)
 
 Or you can check out the file: `S4_Assignment_Solution.ipynb`
 <br>
