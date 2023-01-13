@@ -298,3 +298,185 @@ See the screenshot of the spreadsheet using the above formulae (`η = 1`).
 ### η = 2.0
 
 ![Alt text](./images/spreadsheet_eta_2.0_plot.png "Plot 2.0")
+
+<br>
+<br>
+<br>
+
+# Part 2
+
+In part 2 of the assignment, we had to refer to the following [Network](https://colab.research.google.com/drive/1uJZvJdi5VprOQHROtJIHy0mnY2afjNlx), which identifies MNIST images, and achieve the following:
+
+- [x] 99.4% validation accuracy `Achieved in Epochs - 13, 16, 17`
+- [x] Less than 20k Parameters `Total Parameters = 17,962`
+- [x] Less than 20 Epochs `19 Epochs`
+- [x] Usage of Batch Normalization, Dropout, Fully Connected (FC) Layer, Global Average Pooling (GAP) `Refer to the architecture`
+
+<br>
+
+## Architecture
+
+```
+LAYER            [INPUT    | KERNELS    | OUTPUT    | Receptive field]
+
+CONV1            [28x28x1  | 5x5x1x32   | 24x24x32  | RF = 5x5]
+ReLU
+BATCH_NORM(32)
+
+CONV2            [24x24x32 | 3x3x32x16  | 22x22x16  | RF = 7x7]
+ReLU
+BATCH_NORM(16)
+MAX_POOLING      [22x22x16 |  k=2, s=2  | 11x11x16  | RF = 14x14]
+DROPOUT(0.1)
+
+CONV3            [11x11x16 | 3x3x16x16  | 9x9x16    | RF = 16x16]
+ReLU
+BATCH_NORM(16)
+
+CONV4            [9x9x16   | 3x3x16x64  | 7x7x64    | RF = 18x18]
+ReLU
+BATCH_NORM(64)
+
+GAP(1)
+DROPOUT(0.1)
+
+FC               [64*1*1 => 10]
+```
+
+## Summary
+
+```
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 32, 24, 24]             832
+       BatchNorm2d-2           [-1, 32, 24, 24]              64
+            Conv2d-3           [-1, 16, 22, 22]           4,624
+       BatchNorm2d-4           [-1, 16, 22, 22]              32
+           Dropout-5           [-1, 16, 11, 11]               0
+            Conv2d-6             [-1, 16, 9, 9]           2,320
+       BatchNorm2d-7             [-1, 16, 9, 9]              32
+            Conv2d-8             [-1, 64, 7, 7]           9,280
+       BatchNorm2d-9             [-1, 64, 7, 7]             128
+AdaptiveAvgPool2d-10             [-1, 64, 1, 1]               0
+          Dropout-11             [-1, 64, 1, 1]               0
+           Linear-12                   [-1, 10]             650
+================================================================
+Total params: 17,962
+Trainable params: 17,962
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.48
+Params size (MB): 0.07
+Estimated Total Size (MB): 0.55
+----------------------------------------------------------------
+```
+
+<br>
+
+## Link to the solution
+
+[<font size=5><u><b>Solution</b></u></font>](https://colab.research.google.com/drive/1UCCuRF1rhUaQ6RZ5B5_shFS7PeGb6z_Q?usp=sharing)
+
+Or you can check out the file: `S4_Assignment_Solution.ipynb`
+<br>
+
+## Logs
+
+```
+Epoch:  1
+loss=0.04502683877944946 batch_id=937: 100%|██████████| 938/938 [00:22<00:00, 41.44it/s]
+
+Test set: Average loss: 0.0772, Accuracy: 9779/10000 (97.79%)
+
+Epoch:  2
+loss=0.09046034514904022 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.80it/s]
+
+Test set: Average loss: 0.0548, Accuracy: 9827/10000 (98.27%)
+
+Epoch:  3
+loss=0.019108165055513382 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.76it/s]
+
+Test set: Average loss: 0.0402, Accuracy: 9875/10000 (98.75%)
+
+Epoch:  4
+loss=0.029182815924286842 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.34it/s]
+
+Test set: Average loss: 0.0335, Accuracy: 9904/10000 (99.04%)
+
+Epoch:  5
+loss=0.008654656819999218 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.10it/s]
+
+Test set: Average loss: 0.0271, Accuracy: 9922/10000 (99.22%)
+
+Epoch:  6
+loss=0.0032439972274005413 batch_id=937: 100%|██████████| 938/938 [00:20<00:00, 46.43it/s]
+
+Test set: Average loss: 0.0277, Accuracy: 9907/10000 (99.07%)
+
+Epoch:  7
+loss=0.049506206065416336 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.03it/s]
+
+Test set: Average loss: 0.0243, Accuracy: 9921/10000 (99.21%)
+
+Epoch:  8
+loss=0.1322145313024521 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.67it/s]
+
+Test set: Average loss: 0.0249, Accuracy: 9929/10000 (99.29%)
+
+Epoch:  9
+loss=0.0013750848593190312 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.64it/s]
+
+Test set: Average loss: 0.0247, Accuracy: 9923/10000 (99.23%)
+
+Epoch:  10
+loss=0.14347663521766663 batch_id=937: 100%|██████████| 938/938 [00:18<00:00, 49.59it/s]
+
+Test set: Average loss: 0.0232, Accuracy: 9925/10000 (99.25%)
+
+Epoch:  11
+loss=0.00669552106410265 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.38it/s]
+
+Test set: Average loss: 0.0202, Accuracy: 9938/10000 (99.38%)
+
+Epoch:  12
+loss=0.010275788605213165 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 49.25it/s]
+
+Test set: Average loss: 0.0221, Accuracy: 9932/10000 (99.32%)
+
+Epoch:  13
+loss=0.012313640676438808 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 49.02it/s]
+
+Test set: Average loss: 0.0189, Accuracy: 9948/10000 (99.48%)
+
+Epoch:  14
+loss=0.019488289952278137 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.48it/s]
+
+Test set: Average loss: 0.0225, Accuracy: 9936/10000 (99.36%)
+
+Epoch:  15
+loss=0.0010803210316225886 batch_id=937: 100%|██████████| 938/938 [00:18<00:00, 49.75it/s]
+
+Test set: Average loss: 0.0204, Accuracy: 9938/10000 (99.38%)
+
+Epoch:  16
+loss=0.0032050954177975655 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 47.77it/s]
+
+Test set: Average loss: 0.0198, Accuracy: 9947/10000 (99.47%)
+
+Epoch:  17
+loss=0.0024224459193646908 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.16it/s]
+
+Test set: Average loss: 0.0203, Accuracy: 9940/10000 (99.40%)
+
+Epoch:  18
+loss=0.011659398674964905 batch_id=937: 100%|██████████| 938/938 [00:20<00:00, 46.67it/s]
+
+Test set: Average loss: 0.0184, Accuracy: 9936/10000 (99.36%)
+
+Epoch:  19
+loss=0.017939575016498566 batch_id=937: 100%|██████████| 938/938 [00:19<00:00, 48.72it/s]
+
+Test set: Average loss: 0.0180, Accuracy: 9939/10000 (99.39%)
+```
