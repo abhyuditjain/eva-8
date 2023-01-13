@@ -2,7 +2,7 @@
 
 ## Network
 
-![Alt text](image.png "Network")
+![Alt text](./images/network.png "Network")
 
 The above image shows a network with the following inputs.
 
