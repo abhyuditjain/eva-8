@@ -294,35 +294,36 @@ Or you can check out the file: `session4_assignment_iteration_10.ipynb`
 
 ## Target:
 
-- Changed the initial LR and steps for LR scheduler
+- Changed LR scheduler to ReduceLROnPlateau
   - Initial LR = 0.3
-  - steps = 5
-  - gamma = 0.1
+  - factor = 0.1
+  - patience = 0
+  - mode = max
+  - metric to be maximized = accuracy, which I'm returning from the train function
 - Reduced the number of parameters from 13,808 to 7,750
 
 ## Results:
 
 - Parameters = 7,750
-- Best training accuracy = 99.19%
-- Best testing accuracy = 99.46%
+- Best training accuracy = 99.14%
+- Best testing accuracy = 99.50%
 
 ## Analysis:
 
 - Model well within target size, even less than 8,000
 - Model is under-fitting as expected.
 - We reached our target testing accuracy faster and more consistently
-  - 99.40% at Epoch 6
-  - 99.46% at Epoch 7
+  - 99.44% at Epoch 7
   - 99.44% at Epoch 8
-  - 99.42% at Epoch 9
-  - 99.43% at Epoch 10
-  - 99.42% at Epoch 11
-  - 99.44% at Epoch 12
-  - 99.42% at Epoch 14
-- Overall testing accuracy is up and we achieved our target during the last 7 epochs. And accuracy overall is high during the later epochs.
-- Epoch 13 had an accuracy of 99.39%
+  - 99.44% at Epoch 9
+  - 99.50% at Epoch 10
+  - 99.46% at Epoch 11
+  - 99.49% at Epoch 12
+  - 99.46% at Epoch 13
+  - 99.48% at Epoch 14
+- Overall testing accuracy is up and we achieved our target during the last 8 epochs. And accuracy overall is high during the later epochs.
 
-[Solution](https://colab.research.google.com/drive/1zVbNIKCOccxqhkUa96jTOUCmkR2cR2bW?usp=sharing)
+[Solution](https://colab.research.google.com/drive/1We41w2UFvm7AnHsAyQC5DeA8p16IKhzW?usp=sharing)
 
 Or you can check out the file: `session4_assignment_iteration_11.ipynb`
 <br>
