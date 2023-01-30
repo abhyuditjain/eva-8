@@ -11,7 +11,7 @@ def normalizer(method, out_channels):
     elif method == "LN":
         return nn.GroupNorm(1, out_channels)
     else:
-        return nn.GroupNorm(4, out_channels)
+        return nn.GroupNorm(5, out_channels)
 
 
 class Net(nn.Module):
