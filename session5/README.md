@@ -118,9 +118,9 @@ To perform LN, we calculate the mean and the variance of each image in the mini-
 
 ## 3. Group Normalization (GN)
 
-To perform GN, we calculate the mean and the variance of each group. The grouping is of the channels. Mean and variance are calculated for each image in the mini-batch. The number of additional parameters depends on the size of the mini-batch and the number of groups (`num_channels/group_size`).
+To perform GN, we calculate the mean and the variance of each group. The grouping is of the channels. Mean and variance are calculated for each image in the mini-batch. The number of additional parameters depends on the size of the mini-batch and the number of groups.
 
-If the size of batch is 4 and number of groups (`num_channels/group_size`) is 2 then the number of additional parameters added is 8 each for mean and variance.
+If the size of batch is 4 and number of groups is 2 then the number of additional parameters added is 8 each for mean and variance.
 
 # Normalization Calculations
 
