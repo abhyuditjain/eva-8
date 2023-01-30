@@ -31,6 +31,22 @@ All the other utility functions are defined in the notebook itself.
 
 I chose the last iteration of my session 4 assignment which achieved the best accuracy with least amount of parameters.
 
+## Transformations
+
+- Random rotation
+- Image normalization
+
+## Normalizations
+
+- Batch Normalization
+- Group Normalization
+- Layer Normalization
+
+## Regularization
+
+- **L1 Regularization:**
+  Used Regularization factor of `1.0e-5`. Used only with **Batch Normalization**.
+
 <hr>
 
 ### These are the model parameters:
@@ -147,6 +163,7 @@ Refer to `normalization_calculations.xlsx`
 
 - Highest training accuracy in Batch Normalization + L1 regularization
 - Highest testing accuracy in Layer Normalization
+- Least difference between train and test accuracies was achieved with Batch Normalization with L1 Regularization
 
 # Graphs
 
