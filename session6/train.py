@@ -36,10 +36,6 @@ class Trainer:
             correct += pred.eq(targets.view_as(pred)).sum().item()
             processed += len(inputs)
 
-            # _, predicted = outputs.max(1)
-            # processed += targets.size(0)
-            # correct += predicted.eq(targets).sum().item()
-
             pbar.set_description(
                 desc=f"EPOCH = {epoch} | LR = {optimizer.param_groups[0]['lr']} | Loss = {loss.item():3.2f} | Batch = {batch_id} | Accuracy = {100*correct/processed:0.2f}"
             )
