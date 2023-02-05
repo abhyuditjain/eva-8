@@ -18,9 +18,9 @@ class Net(nn.Module):
         32      1       3           1           1        1        1       3       32
         """
         self.input_block = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=3, stride=1, padding=1, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
         )
 
@@ -33,24 +33,24 @@ class Net(nn.Module):
         """
         self.conv_block1 = nn.Sequential(
             # 32x32x32 | 3x3x32x32 (padding=0) | 30x30x32
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
             # 30x30x32 | 3x3x32x32 (padding=0) | 28x28x32
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
             # 28x28x32 | 3x3x32x32 (padding=0) | 26x26x32
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
         )
 
@@ -63,27 +63,27 @@ class Net(nn.Module):
         26      15       5           0           2       1       2        19        11
         """
         self.conv_block2 = nn.Sequential(
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, dilation=2, kernel_size=3, stride=2, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, dilation=2, kernel_size=3, stride=2, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
         )
 
@@ -96,27 +96,27 @@ class Net(nn.Module):
         11      31       5           0           1       2       2        35         7
         """
         self.conv_block3 = nn.Sequential(
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, dilation=2, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, dilation=2, kernel_size=3, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
         )
 
@@ -129,25 +129,25 @@ class Net(nn.Module):
          3      47       3           0        1         2        2        51        1
         """
         self.conv_block4 = nn.Sequential(
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, groups=64, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, dilation=2, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=64, dilation=2, kernel_size=3, stride=1, padding=0, bias=False),
             nn.ReLU(),
-            nn.BatchNorm2d(32),
+            nn.BatchNorm2d(64),
             nn.Dropout(dropout_value),
 
             # OUTPUT to GAP so not followed by ReLU + BN + Dropout
-            nn.Conv2d(in_channels=32, out_channels=10, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=64, out_channels=10, kernel_size=3, stride=1, padding=0, bias=False),
         )
 
         self.gap = nn.Sequential(
