@@ -57,25 +57,31 @@ class Net(nn.Module):
         """
         CONVOLUTION BLOCK 2
         NIn    RFIn   KernelSize  Padding   Stride    JumpIn  JumpOut    RFOut     NOut
-        26       9       3           0           1       1       1        11        24
-        24      11       3           0           1       1       1        13        22
-        22      13       3           0           1       1       1        15        20
+        26       9       3           1           1       1       1        11        26
+        26      11       3           1           1       1       1        13        26
+        26      13       3           1           1       1       1        15        26
+        26      15       5           0           1       1       1        19        22
         """
         self.conv_block2 = nn.Sequential(
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(32),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(32),
             nn.Dropout(dropout_value),
 
-            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=1, bias=False),
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.ReLU(),
+            nn.BatchNorm2d(32),
+            nn.Dropout(dropout_value),
+
+            nn.Conv2d(in_channels=32, out_channels=32, dilation=2, kernel_size=3, stride=1, padding=0, bias=False),
             nn.ReLU(),
             nn.BatchNorm2d(32),
             nn.Dropout(dropout_value),
@@ -84,9 +90,10 @@ class Net(nn.Module):
         """
         CONVOLUTION BLOCK 3
         NIn    RFIn   KernelSize  Padding   Stride    JumpIn  JumpOut    RFOut     NOut
-        20      15       3           0           1       1       1        17        18
-        18      17       3           0           1       1       1        19        16
-        16      19       3           0           1       1       1        21        14
+        22      19       3           0           1       1       1        21        20
+        20      21       3           0           1       1       1        23        18
+        18      23       3           0           1       1       1        25        16
+        16      25       5           0           1       1       1        29        12
         """
         self.conv_block3 = nn.Sequential(
             nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
@@ -106,13 +113,19 @@ class Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(32),
             nn.Dropout(dropout_value),
+
+            nn.Conv2d(in_channels=32, out_channels=32, dilation=2, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.ReLU(),
+            nn.BatchNorm2d(32),
+            nn.Dropout(dropout_value),
         )
 
         """
         CONVOLUTION BLOCK 4
         NIn    RFIn   KernelSize  Padding   Stride    JumpIn  JumpOut    RFOut     NOut
-        14      21       3           0           1       1       1        23        12
-        12      23       3           0           1       1       1        25        10
+        12      29       3           0           1       1       1        31        10
+        10      31       3           0           1       1       1        33         8
+         8      33       3           0           1       1       1        37         4
         """
         self.conv_block4 = nn.Sequential(
             nn.Conv2d(in_channels=32, out_channels=32, groups=32, kernel_size=3, stride=1, padding=0, bias=False),
@@ -126,12 +139,17 @@ class Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(32),
             nn.Dropout(dropout_value),
+
+            nn.Conv2d(in_channels=32, out_channels=32, dilation=2, kernel_size=3, stride=1, padding=0, bias=False),
+            nn.ReLU(),
+            nn.BatchNorm2d(32),
+            nn.Dropout(dropout_value),
         )
 
         """
         OUTPUT BLOCK
         NIn    RFIn   KernelSize  Padding   Stride    JumpIn  JumpOut    RFOut     NOut
-        10      25       3           0           1       1       1        27         8
+         4      37       3           0           1       1       1        39         2
         """
         self.output = nn.Sequential(
             nn.Conv2d(in_channels=32, out_channels=10, kernel_size=3, stride=1, padding=0, bias=False),
