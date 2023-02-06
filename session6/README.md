@@ -31,6 +31,12 @@
 
 ---
 
+# **Colab Link**
+
+## [**Solution on Colab**](https://colab.research.google.com/drive/1UdvIPAicwzppjDnQBu5-SJ5iIbnbJEoP?usp=sharing)
+
+Or, check out the committed notebook file - `session6_assignment.ipynb`
+
 <br>
 
 # **Key Points**
