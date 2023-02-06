@@ -63,7 +63,7 @@ Or, check out the committed notebook file - `session6_assignment.ipynb`
 | 16             | 21           | 5                      | 2           | 2          | 2           | 4            | 29            | 8               | 3         | Dilated + Strided Conv             |
 | 8              | 29           | 5                      | 1           | 1          | 4           | 4            | 45            | 8               | 3         | Dilated Conv                       |
 | 8              | 45           | 3                      | 1           | 1          | 4           | 4            | 53            | 8               | 3         | Normal Conv                        |
-| 8              | 53           | 3+2                    | 2           | 2          | 4           | 8            | 69            | 4               | 4         | Dilated + Strided Conv             |
+| 8              | 53           | 5                      | 2           | 2          | 4           | 8            | 69            | 4               | 4         | Dilated + Strided Conv             |
 | 4              | 69           | 3                      | 1           | 1          | 8           | 8            | 85            | 4               | 4         | Depthwise Separable Conv           |
 | 4              | 85           | 3                      | 1           | 1          | 8           | 8            | 101           | 4               | 4         | Normal Conv (Last conv before GAP) |
 
