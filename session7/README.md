@@ -49,7 +49,7 @@
 
 # Colab Link
 
-## [Solution on Colab](https://colab.research.google.com/drive/1UdvIPAicwzppjDnQBu5-SJ5iIbnbJEoP?usp=sharing)
+## [Solution on Colab](https://colab.research.google.com/drive/1BzH3IYTo6q8jVIQfXO9Tck6F-RhJ0XhV?usp=sharing)
 
 Or, check out the committed notebook file - `session7_assignment.ipynb`
 
