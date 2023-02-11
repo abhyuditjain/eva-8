@@ -43,10 +43,6 @@
    - Share the link to your **MAIN** repo
    - Share the link to your **README** of Assignment 7 (cannot be in the **MAIN** Repo, but Assignment 7 repo)
 
-<hr>
-<br>
-<br>
-
 # Colab Link
 
 ## [Solution on Colab](https://colab.research.google.com/drive/1BzH3IYTo6q8jVIQfXO9Tck6F-RhJ0XhV?usp=sharing)
